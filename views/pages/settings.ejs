@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+
+
+
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+<div class="col-sm-offset-3  col-md-offset-2 main">
+  <script type="text/javascript">
+                    function operacion(){
+                            var n1 = document.getElementById("twitchname").value;
+                            var n2 = document.getElementById("twitchoauth").value;
+                            var n3 = document.getElementById("botname").value;
+                            var n4 = document.getElementById("botoauth").value;
+                            var n5 = document.getElementById("twitchport").value;
+                            var n6 = document.getElementById("twitchchannel").value;
+                            var n7 = document.getElementById("discordport").value;
+                            var n8 = document.getElementById("discordprotocol").value;
+
+                            location.href = "/myaction" + "?twitchname="+ n1
+                            + "&twitchoauth=" + n2
+                            + "&botname=" + n3
+                            + "&botoauth=" + n4
+                            + "&twitchport=" + n5
+                            + "&twitchchannel=" + n6
+                            + "&discordport=" + n7
+                            + "&discordprotocol=" + n8;
+                    }
+  </script>
+
+
+  <form >
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td><b><center>Property</b></center></td>
+          <td><b><center>Value</b></center></td>
+        </tr>
+      </thead>
+      <form >
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td><b><center>Property</b></center></td>
+            <td><b><center>Value</b></center></td>
+          </tr>
+        </thead>
+
+          <tr>
+          <div class="form-group">
+                <td><label for="bn">twitchname </label></td><td><center><input id="twitchname" value="cpyargerit"></center></td>
+          </div>
+        </tr>
+
+
+          <tr>
+          <div class="form-group">
+                <td><label for="bn">twitchoauth </label></td><td><center><input id="twitchoauth" value="oauth:" type="password"></center></td>
+          </div>
+        </tr>
+
+
+          <tr>
+          <div class="form-group">
+                <td><label for="bn">botname </label></td><td><center><input id="botname" value="m0istbutter"></center></td>
+          </div>
+        </tr>
+
+
+          <tr>
+          <div class="form-group">
+                <td><label for="bn">botoauth </label></td><td><center><input id="botoauth" value="oauth:c9v7eyprc75b1w07to6pootrmeewu6" type="password"></center></td>
+          </div>
+        </tr>
+
+
+          <tr>
+          <div class="form-group">
+                <td><label for="bn">twitchport </label></td><td><center><input id="twitchport" value="6667"></center></td>
+          </div>
+        </tr>
+
+
+          <tr>
+          <div class="form-group">
+                <td><label for="bn">twitchchannel </label></td><td><center><input id="twitchchannel" value="#cpyargerit"></center></td>
+          </div>
+        </tr>
+
+
+          <tr>
+          <div class="form-group">
+                <td><label for="bn">discordport </label></td><td><center><input id="discordport" value=""></center></td>
+          </div>
+        </tr>
+
+
+          <tr>
+          <div class="form-group">
+                <td><label for="bn">discordprotocol </label></td><td><center><input id="discordprotocol" value=""></center></td>
+          </div>
+        </tr>
+
+
+          <tr>
+          <div class="form-group">
+                <td><label for="bn">clientID </label></td><td><center><input id="clientID" value="ksyizvjpazyrcm337bjwg4r9e41kh63" type="password"></center></td>
+          </div>
+        </tr>
+
+
+
+
+
+
+
+</table>
+<input type="button" value="submit" onClick="operacion()"></input>
+</form>
+<script src="ajax.js"></script>
+
+  </div>
+
+    </main>
+    <script>$(".<%=classi%>").removeClass("<%=classi%>").addClass("active")</script>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

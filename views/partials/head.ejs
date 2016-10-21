@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="Moist butter bot for twitch and discord">
+<meta name="author" content="cpyarger@gmail.com">
+<link rel="icon" href="fav.ico">
+
+<title>Moist butter bot</title>
+
+<!-- Bootstrap core CSS -->
+<!-- Latest compiled and minified CSS -->
+<link href="style.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+<!-- Custom styles for this template -->
+<link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://d2g2wobxbkulb1.cloudfront.net/0.0.19/tmi.js"></script>  <!--For developement-->
+<script>
+$(document).ready(function(){
+  $('#pointSlider').on('input', function(){
+      $('#pointText').html ($('#pointSlider').val());
+
+  });
+
+
+  $('#minSlider').on('input', function(){
+      $('#minText').html ($('#minSlider').val());
+
+  });
+
+
+});
+
+
+</script>

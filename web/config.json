@@ -1,0 +1,13 @@
+{
+  "config": {
+    "twitchname": "cpyargerit",
+    "twitchoauth": "oauth:",
+    "botname": "m0istbutter",
+    "botoauth": "oauth:c9v7eyprc75b1w07to6pootrmeewu6",
+    "twitchport": "6667",
+    "twitchchannel": "#cpyargerit",
+    "discordport": "",
+    "discordprotocol": "",
+    "clientID":"ksyizvjpazyrcm337bjwg4r9e41kh63"
+  }
+}

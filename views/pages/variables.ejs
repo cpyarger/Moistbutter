@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="text-center">Variables</h1>
+
+        <form>
+          <table class="text-center table table-striped">
+            <thead>
+              <tr>
+                <td>Variable Name</td>
+                <td>Value</td>
+                <td>submit</td>
+                <td>delete</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% vars.forEach(function(drink) { %>
+              <tr>
+                <td><input type="text" id="varname" label="varname" value="<%= drink['variable'] %>"></td>
+                <td><input type="text" id="varname" label="varname" value="<%= drink['value'] %>"></td>
+                <td><button>Submit</button></td>
+                <td><button>Delete</button></td>
+                <%= drink['forkey1'] %>
+</tr>
+
+<% }); %>
+
+                <tr>
+                  <td>blah</td>
+                  <td>This is the value of blah</td>
+                  <td><button>edit</button></td>
+                  <td><button>Delete</button></td>
+                </tr>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+    </main>
+    <script>$(".<%=classi%>").removeClass("<%=classi%>").addClass("active")</script>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

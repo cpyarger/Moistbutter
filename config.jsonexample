@@ -1,0 +1,17 @@
+{
+  "config": {
+    "twitchname": "name",
+    "twitchoauth": "oauth:",
+    "botname": "name",
+    "botoauth": "oauth:xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "twitchport": "6667",
+    "twitchchannel": "#cpyargerit",
+    "discordport": "",
+    "discordprotocol": "",
+    "clientID":"xxxxxxxxxxxxxxxxxxxxxx",
+    "host"     : "aws.cpyarger.com",
+    "user"     : "bot",
+    "password" : "",
+    "database" : "MoistButter"
+  }
+}

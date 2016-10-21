@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+
+            <h1 class="text-center">Giveaway</h1>
+
+            <form>
+              <button>This button initiates the drawing</button>
+              <table class="text-center table table-striped">
+                <thead>
+                  <tr>
+                    <td>Username</td>
+                    <td>Value</td>
+                    <td>Reward</td>
+                    <td>Punish</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="text" id="varname" label="varname"></td>
+                    <td><input type="text" id="varname" label="varname"></td>
+                    <td><button>+10</button></td>
+                    <td><button>-10</button></td>
+                    <tr>
+                      <td>testuser</td>
+                      <td>50</td>
+                      <td><button>+10</button></td>
+                      <td><button>-10</button></td>
+                    </tr>
+                  </tr>
+                </tbody>
+              </table>
+  </form>
+
+
+
+
+      </div>
+
+
+
+    </main>
+    <script>$(".<%=classi%>").removeClass("<%=classi%>").addClass("active")</script>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

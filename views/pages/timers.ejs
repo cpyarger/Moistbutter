@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            <h1 class="text-center">Timers</h1>
+            <hr />
+
+          <table class="text-center table table-striped">
+            <thead><b>
+              <tr>
+                <td><b>Timer Name</b></td>
+                <td><b>Timer Time</b></td>
+                <td><b>Timer Type</b></td>
+                <td><b>Timer content</b></td>
+                <td><b>Action</b></td>
+              </tr>
+              <tr>
+              <td>Name</td>
+              <td>(HH:MM:SS)</td>
+              <td>command/ Message</td>
+              <td>Message or command to execute</td>
+            </tr>
+            <tr>
+            <td><input type="text"></td>
+            <td><input type="text" size="10" maxlength="10" placeholder = '1h 11m 11s' class="duration"/></td>
+            <td>            <select class="form-control">
+                          <% type.forEach(function(drink) { %>
+                            <option><%= drink['type'] %></option>
+                          <% }); %>
+                        </select></td>
+            <td><input type="text"></td>
+            <td><input type="button" value="save"></td>
+          </tr>
+            </thead>
+
+            <tbody>
+
+<tr>
+<td>------------</td>
+<td>------------</td>
+<td>------------</td>
+<td>------------</td>
+<td>------------</td>
+</tr>
+
+
+
+                <tr>
+                  <td>ExampleCommand</td>
+                  <td>00:01:00</td>
+                  <td>Message</td>
+                  <td>This message is sent every hour</td>
+                  <td><input type="button" value="Edit"></td>
+                </tr>
+<% timers.forEach(function(drink) { %>
+  <tr>
+    <td><%= drink['name'] %></td>
+    <td><%= drink['time'] %></td>
+    <td><%= drink['type'] %></td>
+    <td><%= drink['content'] %></td>
+    <td><input type="button" value="Edit"></td>
+  </tr>
+  <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script>$(".<%=classi%>").removeClass("<%=classi%>").addClass("active")</script>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "settings": {
+    "currency": {
+      "points": "1",
+      "mins": "5",
+      "enable": true
+    },
+    "variables": {
+      "soo": {
+        "value": "what",
+        "enabled": true
+      },
+      "mins": {
+        "value": "this",
+        "enabled": false
+      },
+      "boolean": {
+        "value": true,
+        "enabled": true
+      }
+    }
+  }
+}
