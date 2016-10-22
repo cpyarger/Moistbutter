@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="text-center">Currency system and monitoring</h1>
+            <hr />
+
+
+
+
+
+              <form class="form-inline" align="center">
+                <button type="button"  onclick="enableDisableCurrency()" id="onSwitch">Enabled</button>
+                <div class="form-group">
+                  <div class="input-group">
+                  <label class="input-group-addon" for="Points">Points</label>
+              <input type="range" name="points" id="pointSlider" min="1" max="100"  value="<%= sats.points %>" step=1 class="form-control">
+              <div class="input-group-addon" id="pointText">  <%= sats.points %></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+            <label for="Mins" class="input-group-addon" >Minutes</label>
+        <input type="range" name="Mins" id="minSlider" min="1" max="60"  value="<%= sats.mins %>" class="form-control">
+        <div class="input-group-addon" id="minText">  <%= sats.mins %></div>
+      </div>
+
+    </div>
+<button id="pointset" onclick="pointSet()" class="btn btn-primary">Set</button>
+<button id="pointupdate" onclick="updatePoints()" class="btn btn-primary">Update</button>
+  </form>
+<hr />
+      <form>
+              <table class="text-center table table-striped">
+                <thead><b>
+                  <tr>
+                    <td><b>Avatar</b></td>
+                    <td><b>Username</b></td>
+                    <td><b>Value</b></td>
+                    <td><b>Reward</b></td>
+                    <td><b>punish</b></td>
+                  </tr>
+                </b>
+                </thead>
+                <tbody>
+                  <% data.forEach(function(item, index){ %>
+                  <tr><td><img width="50" height="50" src= <%= item.image %> ></img> </td>
+                  <td><%= item.name %></td>
+                  <td><%= item.currency %>
+                  <td><button onClick=plus("<%= item.name %>") >+100</button></td>
+                  <td><button onClick=minus("<%= item.name %>") >-100</button></td>
+    </tr>
+
+                  <% }); %>
+
+                </tbody>
+              </table>
+  </form>
+
+
+
+
+
+      </div>
+    </main>
+    <script>
+
+    function plus(name){
+
+       $.ajax({
+         type: 'POST',
+          url: "http://localhost:3000/plus/"+name
+       });
+    } ;
+    function enableDisableCurrency(){
+
+       $.ajax({
+         type: 'POST',
+          url: "http://localhost:3000/currhandle"
+       });
+document.location.reload();
+    } ;
+
+    function minus(name){
+      query=
+       $.ajax({
+         type: 'POST',
+          url: "http://localhost:3000/minus/"+name
+       });
+    };
+    function updatePoints(){
+      query=
+       $.ajax({
+         type: 'POST',
+          url: "http://localhost:3000/updatePoints"
+       });
+    };
+
+    function pointSet(point, Min){
+      var p = $("#pointSlider").val()
+      var m = $("#minSlider").val()
+      query=
+       $.ajax({
+         type: 'POST',
+          url: "http://localhost:3000/points/"+p+"/"+m
+       });
+    };
+    </script>
+    <script>$(".<%=classi%>").removeClass("<%=classi%>").addClass("active")
+    $("#111").click(function() {
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/botcon'
+        });
+      });
+    </script>
+    </script>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    <script>
+    if (<%= sats.enable %>) {
+      $("#onSwitch").html("Enabled")
+      $("#onSwitch").addClass("btn btn-success")
+    } else {
+      $("#onSwitch").html("Disabled")
+      $("#onSwitch").addClass("btn btn-danger")
+    }
+
+    $(".<%=classi%>").removeClass("<%=classi%>").addClass("active")
+
+    </script>
+
+</body>
+</html>

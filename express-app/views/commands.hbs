@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="text-center">Commands</h1>
+
+          <form>
+            <table class="text-center table table-striped">
+              <thead>
+                <tr>
+                  <td>Command Name</td>
+                  <td>Value</td>
+                  <td>submit</td>
+                  <td>delete</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="text" id="varname" label="varname"></td>
+                  <td><input type="text" id="value" label="varname"></td>
+                  <td><button name="subcom" id="like">Submit</button></td>
+                  <td><button name="delcom" id="like"> Delete</button></td>
+                </tr>
+
+                <% coms.forEach(function(drink) { %>
+                <tr>
+                  <td><%= drink['command'] %></td>
+                  <td><%=drink['result']%></td>
+                  <td><button name="edcom" id="like" value="<%= drink['command'] %>">Edit</button></td>
+                  <td><button name="delcom" id="like" value="<%= drink['command'] %>"> Delete</button></td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table>
+</form>
+</td>
+
+
+        <input type="submit" id="111" value="toggleswitch">
+
+
+
+    </main>
+    <script>$(".<%=classi%>").removeClass("<%=classi%>").addClass("active")
+$("#111").click(function() {
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:3000/botcon'
+    });
+  });
+</script>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

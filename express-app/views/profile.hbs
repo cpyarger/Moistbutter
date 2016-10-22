@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <img class="img-circle img-responsive " src="<%=profimage%>" alt="Responsive image" >
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+Twitch Name: <%=twitchname%>
+</div>
+
+
+
+    </main>
+    <script>$(".<%=classi%>").removeClass("<%=classi%>").addClass("active")</script>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>
