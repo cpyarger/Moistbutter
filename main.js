@@ -20,7 +20,7 @@ function createWindow () {
 
 app.on("ready", createWindow);
 app.on("browser-window-created",function(e,window) {
-  //window.setMenu(null);
+  //window.setMenu(null); to remove menu in final version
 });
 
 app.on("window-all-closed", function () {

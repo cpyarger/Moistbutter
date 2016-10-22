@@ -1,5 +1,7 @@
 
 module.exports = function (app) {
+
+  //include all  of the subpages routes individually, this allows us to clean up the router handler. by not forcing all of the page specific code within one large file
     app.use('/', require('./routes/about'));
     app.use('/', require('./routes/blacklist'));
     app.use('/', require('./routes/commands'));
