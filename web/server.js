@@ -23,7 +23,7 @@ var connection = mysql.createConnection({
   database : nconf.get('config:database')
 });
 // Add headers
-app.use(function (req, res, next) {
+appserver.use(function (req, res, next) {
 
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -41,12 +41,12 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }));
+appserver.use(express.static('public'));
+appserver.use(bodyParser.urlencoded({ extended: true }));
 
-app.set('view engine', 'ejs');
+appserver.set('view engine', 'ejs');
 
-app.get('/myaction', function(req, res) {
+appserver.get('/myaction', function(req, res) {
   nconf.file({ file: '../config.json' });
   var params = url.parse(req.url,true).query;
   //console.log(params.twitchname)
@@ -74,14 +74,14 @@ console.log(nconf.get());
 
 
 require('./posts')
-app.post('/botcon', function(req, res) {
+appserver.post('/botcon', function(req, res) {
   connected =! connected
   console.log('connected: ' + connected)
   res.redirect(req.get('referer'));
 
 
 });
-app.post('/currhandle', function(req, res) {
+appserver.post('/currhandle', function(req, res) {
   nconf.file({ file: 'local.json' });
   var x = nconf.get("settings:currency:enable")
   x=!x
@@ -92,14 +92,14 @@ res.redirect(req.get('referer'));
 
 });
 
-app.post('/test', function (req, res) {
+appserver.post('/test', function (req, res) {
   console.log('Testing Loaded')
     console.log('works');
     console.log('');
     res.send(200)
 });
 
-app.post('/plus/:name', function(req, res) {
+appserver.post('/plus/:name', function(req, res) {
   connection.query('UPDATE Followers SET currency = currency+100 WHERE name=?',[req.params.name], function(error, results){
 console.log(error)
 });
@@ -107,13 +107,13 @@ console.log(error)
     // Run your LED toggling code here
 });
 
-app.post('/minus/:name', function(req, res) {
+appserver.post('/minus/:name', function(req, res) {
   connection.query('UPDATE Followers SET currency = currency-100 WHERE name=?',[req.params.name], function(error, results){
     console.log(error)
     });
     console.log('Minus button pressed for '+req.params.name);
 });
-app.post('/updatePoints', function(req, res) {
+appserver.post('/updatePoints', function(req, res) {
   nconf.file({ file: 'local.json' });
   var xx=nconf.get("settings:currency:points");
   connection.query('UPDATE Followers SET currency = currency+?',[xx], function(error, results){
@@ -126,7 +126,7 @@ app.post('/updatePoints', function(req, res) {
     console.log(results);
   });
 });
-app.post('/points/:point/:min', function(req, res) {
+appserver.post('/points/:point/:min', function(req, res) {
     console.log('Points set at '+req.params.point);
     console.log('Minutes set at '+req.params.min);
     nconf.file({ file: 'local.json' });
@@ -141,7 +141,7 @@ app.post('/points/:point/:min', function(req, res) {
 
 
 
-app.get('/', function(req, res) {
+appserver.get('/', function(req, res) {
 //get latest follower
 
 connection.query('SELECT * FROM Followers ORDER BY id DESC LIMIT 1;', function(error, results){
@@ -155,14 +155,14 @@ connection.query('SELECT * FROM Followers ORDER BY id DESC LIMIT 1;', function(e
   });
 });
 
-app.get("/profile",function(req,res){
+appserver.get("/profile",function(req,res){
   res.render('pages/profile',{
     classi: "profile",
     profimage: profimage,
     twitchname: twitchname
   });
 });
-app.get("/settings",function(req,res){
+appserver.get("/settings",function(req,res){
 console.log('Settings Loaded')
 nconf.file({ file: 'config.json' });
 
@@ -187,30 +187,30 @@ if (x.hasOwnProperty(key)) {
   });
 });
 
-app.get('/settings.json',function(req,res){
+appserver.get('/settings.json',function(req,res){
 nconf.file({ file: 'config.json' });
 var x=nconf.get('config');
 
 res.send(x);
 });
-app.get("/help",function(req,res){
+appserver.get("/help",function(req,res){
   res.render('pages/help',{
     classi: "help"
   });
 });
-app.get("/about",function(req,res){
+appserver.get("/about",function(req,res){
   res.render('pages/about',{
     classi: "about"
   });
 });
 
-app.get("/contact",function(req,res){
+appserver.get("/contact",function(req,res){
   res.render('pages/contact',{
     classi: "contact"
   });
 });
 
-app.get("/followers",function(req,res){
+appserver.get("/followers",function(req,res){
 var result;
 
           connection.query('SELECT * FROM Followers', function(error, results){
@@ -222,14 +222,14 @@ var result;
 });
 });                    });
 
-app.get("/giveaway",function(req,res){
+appserver.get("/giveaway",function(req,res){
   console.log('Giveaway Loaded')
   res.render('pages/giveaway',{
     classi: "giveaway"
   });
 });
 
-app.get("/currency",function(req,res){
+appserver.get("/currency",function(req,res){
   nconf.file({ file: 'local.json' });
   console.log('Currency Loaded')
   console.log()
@@ -247,28 +247,28 @@ console.log(sets);
 });
 });
 
-app.get("/music",function(req,res){
+appserver.get("/music",function(req,res){
   console.log('Music Loaded')
   res.render('pages/music',{
     classi: "music"
   });
 });
 
-app.get("/integration",function(req,res){
+appserver.get("/integration",function(req,res){
   console.log('Integration Loaded')
   res.render('pages/integration',{
     classi: "integration"
   });
 });
 
-app.get("/quotes",function(req,res){
+appserver.get("/quotes",function(req,res){
   console.log('Quotes Loaded')
   res.render('pages/quotes',{
     classi: "quotes"
   });
 });
 
-app.get("/timers",function(req,res){
+appserver.get("/timers",function(req,res){
   connection.query('SELECT * FROM timers', function(error, timers){
     connection.query('SELECT * FROM timertype', function(error, types){
       console.log('Timers Loaded')
@@ -282,7 +282,7 @@ app.get("/timers",function(req,res){
 
 });
 
-app.get("/commands",function(req,res){
+appserver.get("/commands",function(req,res){
   console.log('Commands Loaded')
 nconf.file({ file: 'Databases/commands.json' });
   //nconf.use('file',{file:'config.json'});
@@ -312,7 +312,7 @@ if (x.hasOwnProperty(key)) {
 //console.log(y);
 });
 
-app.get("/variables",function(req,res){
+appserver.get("/variables",function(req,res){
 connection.query('SELECT * FROM variables', function(error, results){
   console.log('Variables Loaded')
   console.log(JSON.stringify(results));
@@ -323,14 +323,14 @@ connection.query('SELECT * FROM variables', function(error, results){
   });
 });
 
-app.get("/blacklists",function(req,res){
+appserver.get("/blacklists",function(req,res){
   console.log('blacklists Loaded')
   res.render('pages/blacklist',{
     classi: "blacklists"
   });
 });
 
-app.get("/remote",function(req,res){
+appserver.get("/remote",function(req,res){
   console.log('Remote Loaded')
   res.render('pages/remote',{
     classi: "remote"
@@ -338,7 +338,7 @@ app.get("/remote",function(req,res){
 
 });
 
-app.get("/groups",function(req,res){
+appserver.get("/groups",function(req,res){
   console.log('Groups Loaded')
   connection.query('SELECT * FROM UserLevels', function(error, results){
 
@@ -349,37 +349,37 @@ app.get("/groups",function(req,res){
   });
 });
 
-app.get("/games",function(req,res){
+appserver.get("/games",function(req,res){
   console.log('Games Loaded')
   res.render('pages/games',{
     classi: "games"
   });
 });
-app.get("/viewoverlay",function(req,res){
+appserver.get("/viewoverlay",function(req,res){
   console.log('Overlay Preview Page Loaded')
   res.render('pages/viewoverlay',{
     classi: "viewoverlay"
   });
 });
-app.get("/setupoverlay",function(req,res){
+appserver.get("/setupoverlay",function(req,res){
   console.log('Overlay setup page Loaded')
   res.render('pages/setupoverlay',{
     classi: "setupoverlay"
   });
 });
-app.get("/test",function(req,res){
+appserver.get("/test",function(req,res){
   console.log('test Loaded')
   res.send(200)
 });
 
-app.use("*",function(req,res){
+appserver.use("*",function(req,res){
   console.log('404 Error')
   res.render('pages/404')
 });
 
 
 
-app.listen(3000,function(){
+appserver.listen(3000,function(){
   twitches.Latest();
   twitches.followers();
   console.log("Live at Port 3000");

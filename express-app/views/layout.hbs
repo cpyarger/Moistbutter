@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MoistButter Bot - {{title}}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Moist butter bot for twitch and discord">
+    <meta name="author" content="cpyarger@gmail.com">
+    <link rel="icon" href="fav.ico">
+
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://d2g2wobxbkulb1.cloudfront.net/0.0.19/tmi.js"></script>  <!--For developement-->
+    <script>
+    $(document).ready(function(){
+      $('#pointSlider').on('input', function(){
+          $('#pointText').html ($('#pointSlider').val());
+
+      });
+
+
+      $('#minSlider').on('input', function(){
+          $('#minText').html ($('#minSlider').val());
+
+      });
+
+
+    });
+
+
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+        <a class="navbar-brand" href="#">MoistButter</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">Dashboard</a></li>
+                  <li><a href="/settings">Settings</a></li>
+                  <li><a href="#">Profile</a></li>
+                  <li><a href="#">Help</a></li>
+                </ul>
+
+              </div>
+            </div>
+          </nav>
+
+
+
+        <nav class="navbar2">
+          <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-controls="navbar2">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+          <div id="navbar" class="navbar-collapse collapse sidebar">
+              <ul class="nav nav-sidebar">
+                    <li class="overview"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  Overview <span class="sr-only">(current)</span></a></li>
+                    <li class="giveaway"><a href="/giveaway"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span>     Giveaway</a></li>
+                    <li class="currency"><a href="/currency"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>      Currency</a></li>
+                    <li class="music"><a href="/music"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>    Music bot</a></li>
+                    <li class="integration"><a href="/integration"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>    Integration</a></li>
+                    <li class="quotes"><a href="/quotes"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>     Quotes</a></li>
+                    <li class="timers"><a href="/timers"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>     Timers</a></li>
+                    <li class="commands"><a href="/commands"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Commands</a></li>
+                    <li class="variables"><a href="/variables"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>     Variables</a></li>
+                    <li class="blacklists"><a href="/blacklists"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>    Blacklists</a></li>
+                    <li class="remote"><a href="/remote"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>    Remote Access</a></li>
+                    <li class="groups"><a href="/groups"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>     Groups</a></li>
+                    <li class="games"><a href="/games"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span>    Games</a></li>
+                    <li class="followers"><a href="/followers"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>    Followers</a></li>
+                    <li class="setupoverlay"><a href="/setupoverlay"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>    Overlay Setup</a></li>
+                    <li class="viewoverlay"><a href="/viewoverlay"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>    Overlay view</a></li>
+              </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+        </nav>
+    {{{body}}}
+
+    <!-- views/partials/footer.ejs -->
+    <p class="text-center text-muted">© Copyright 2016 cpyarger.com</p>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  </body>
+</html>
