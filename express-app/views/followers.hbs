@@ -15,15 +15,15 @@
               </tr>
             </thead>
             <tbody>
-
-              <tr><td><img width="50" height="50" src= "<%= item.image %> "></img> </td>
-              <td><%= item.name %></td>
+{{#each data}}
+              <tr><td><img width="50" height="50" src= "{{image}} "></img> </td>
+              <td>{{name}}</td>
               <td><a href="ban>"<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></a></span></td>
               <td><a href="timeout"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></a></td>
               <td><a href="promote"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a></td></tr>
 
 
-
+{{/each}}
             </tbody>
           </table>
         </div>

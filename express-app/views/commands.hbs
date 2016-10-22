@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <% include ../partials/head %>
-</head>
-<body class="container">
 
-    <header>
-        <% include ../partials/header %>
-    </header>
-
-    <main>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="text-center">Commands</h1>
 
@@ -31,14 +20,14 @@
                   <td><button name="delcom" id="like"> Delete</button></td>
                 </tr>
 
-                <% coms.forEach(function(drink) { %>
+                {{#each coms}}
                 <tr>
-                  <td><%= drink['command'] %></td>
-                  <td><%=drink['result']%></td>
-                  <td><button name="edcom" id="like" value="<%= drink['command'] %>">Edit</button></td>
-                  <td><button name="delcom" id="like" value="<%= drink['command'] %>"> Delete</button></td>
+                  <td>{{command}}</td>
+                  <td>{{result}}</td>
+                  <td><button name="edcom" id="like" value="{{command}}">Edit</button></td>
+                  <td><button name="delcom" id="like" value="{{command}}"> Delete</button></td>
                 </tr>
-                <% }); %>
+                {{/each}}
               </tbody>
             </table>
 </form>
@@ -50,7 +39,7 @@
 
 
     </main>
-    <script>$(".<%=classi%>").removeClass("<%=classi%>").addClass("active")
+
 $("#111").click(function() {
     $.ajax({
         type: 'POST',
@@ -58,9 +47,3 @@ $("#111").click(function() {
     });
   });
 </script>
-    <footer>
-        <% include ../partials/footer %>
-    </footer>
-
-</body>
-</html>

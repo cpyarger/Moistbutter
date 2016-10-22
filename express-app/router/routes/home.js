@@ -17,7 +17,7 @@ var result;
 router.get('/', function(req, res) {
   connection.query('SELECT * FROM Followers ORDER BY id DESC LIMIT 1;', function(error, results){
               result = results;
-console.log(result[0])
+
   res.render('index', result[0]);
 });
 });

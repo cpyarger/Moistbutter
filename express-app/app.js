@@ -10,7 +10,7 @@ const express = require('express'),
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('routedir',path.join(__dirname, 'router/routes'));
-console.log(app.get('views'));
+//console.log(app.get('views'));
 app.set('view engine', 'hbs');
 app.set('env','development')
 //uncomment after placing your favicon in /public

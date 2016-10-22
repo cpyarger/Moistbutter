@@ -25,4 +25,5 @@ module.exports = function (app) {
     app.use('/', require('./routes/users'));
     app.use('/', require('./routes/variables'));
     app.use('/', require('./routes/viewoverlay'));
+    console.log("Loaded routes")
 };

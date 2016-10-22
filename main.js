@@ -14,16 +14,19 @@ function createWindow () {
 
   mainWindow.on("closed", function () {
     mainWindow = null;
+    console.log("window closed")
   })
 }
 
 app.on("ready", createWindow);
 app.on("browser-window-created",function(e,window) {
-  window.setMenu(null);
+  //window.setMenu(null);
 });
 
 app.on("window-all-closed", function () {
   if (process.platform !== "darwin") {
+    console.log("window closed")
+
     app.quit();
   }
 });
