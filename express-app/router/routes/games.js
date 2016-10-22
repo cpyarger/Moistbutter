@@ -1,6 +1,6 @@
 const express = require('express'),
       router = express.Router();
-      router.get('/remote', function(req, res) {
-        res.render('remote');
+      router.get('/games', function(req, res) {
+        res.render('games');
       });
       module.exports = router;

@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <% include ../partials/head %>
-</head>
-<body class="container">
-
-    <header>
-      <% include ../partials/header %>
-    </header>
-
-    <main>
 
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
@@ -27,7 +15,7 @@
               </tr>
             </thead>
             <tbody>
-              <% data.forEach(function(item, index){ %>
+
               <tr><td><img width="50" height="50" src= "<%= item.image %> "></img> </td>
               <td><%= item.name %></td>
               <td><a href="ban>"<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></a></span></td>
@@ -35,19 +23,8 @@
               <td><a href="promote"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a></td></tr>
 
 
-              <% }); %>
+
             </tbody>
           </table>
         </div>
       </div>
-
-
-    </main>
-    <script>$(".<%=classi%>").removeClass("<%=classi%>").addClass("active")</script>
-
-    <footer>
-        <% include ../partials/footer %>
-    </footer>
-
-</body>
-</html>

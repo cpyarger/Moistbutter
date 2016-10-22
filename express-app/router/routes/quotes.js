@@ -1,6 +1,6 @@
 const express = require('express'),
       router = express.Router();
-      router.get('/remote', function(req, res) {
-        res.render('remote');
+      router.get('/quotes', function(req, res) {
+        res.render('quotes');
       });
       module.exports = router;
