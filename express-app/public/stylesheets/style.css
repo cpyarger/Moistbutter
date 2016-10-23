@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+tbody {
+  overflow-y: scroll;
+   height:100px;
+ }
