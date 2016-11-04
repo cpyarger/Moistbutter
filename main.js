@@ -4,6 +4,8 @@ const electron = require("electron"),
 
 let mainWindow;
 
+
+
 function createWindow () {
   mainWindow = new BrowserWindow({
     width: 1024,
@@ -34,5 +36,6 @@ app.on("window-all-closed", function () {
 app.on("activate", function () {
   if (mainWindow === null) {
     createWindow();
+
   }
 });
