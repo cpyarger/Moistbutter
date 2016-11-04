@@ -23,15 +23,15 @@ Features Requested
 * Blacklisted words
 * Song request / music queue
 * python plugin API
-* 
+*
 
 #Discord API Access
-You will need to go to 
+You will need to go to
 https://discordapp.com/developers/applications/me
 and create an application
 Then use the create bot user option to create a bot
 
-To add the bot to your discord server 
+To add the bot to your discord server
 you will need the client id from the application registration page
 
 https://discordapp.com/oauth2/authorize?&client_id=>enter client ID here<&scope=bot&permissions=268561430
@@ -39,8 +39,14 @@ https://discordapp.com/oauth2/authorize?&client_id=>enter client ID here<&scope=
 For example:
 https://discordapp.com/oauth2/authorize?&client_id=201396576625754112&scope=bot&permissions=268561430
 
-#Twitch Oauth 
+#Twitch Oauth
 
 Grab your Oauth key from here for your bot account, and your user account
 
 https://twitchapps.com/tmi/
+
+#Twitch Client ID
+
+Follow this guide to make a twitch client ID
+
+https://blog.twitch.tv/client-id-required-for-kraken-api-calls-afbb8e95f843#.fbsmfcyrw
