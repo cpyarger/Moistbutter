@@ -54,9 +54,9 @@
       const expressAppUrl = "http://localhost:3000",
             spawn = require("child_process").spawn,
             //spawn web server process
-            node = spawn(".\\node.exe", ["./express-app/bin/www"], { cwd: process.cwd() }),
+            node = spawn("node", ["./express-app/bin/www"], { cwd: process.cwd() }),
             //spawn twitchchat bot process
-            node2 = spawn(".\\node.exe", ["./TwitchServer/twitchWatch.js"], { cwd: process.cwd() });
+            //node2 = spawn("node", ["./TwitchServer/twitchWatch.js"], { cwd: process.cwd() });
             request = require("request"),
             _ = require("lodash"),
             key = require("keymaster"),
@@ -103,8 +103,8 @@
       }
       redirectOutput(node.stdout);
       redirectOutput(node.stderr);
-      redirectOutput(node2.stdout);
-      redirectOutput(node2.stderr);
+      //redirectOutput(node2.stdout);
+      //redirectOutput(node2.stderr);
       checkServerRunning();
     </script>
   </body>

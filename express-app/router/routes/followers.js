@@ -4,23 +4,24 @@ router = express.Router();
 nconf = require('nconf');
 var mysql      = require('mysql');
 nconf.file('config.json');
-var connection = mysql.createConnection({
-  host     : nconf.get('config:host'),
-  user     : nconf.get('config:user'),
-  password : nconf.get('config:password'),
-  database : nconf.get('config:database')
-  });
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('database.sqlite');
 
 
 router.get('/followers', function(req, res) {
-  connection.query('SELECT * FROM Followers', function(error, results){
-    result = results;
-    res.render('followers', {
-      data: result,
-      title: "Followers"
-      });
+  db.serialize(function() {
+    db.all("SELECT * FROM Followers", function(err, row) {
+      console.log(row)
+     res.render('followers', {
+       data: row,
+       title: "Followers"
+       });
+   });
+  });
 
-    });
+
+
+
 });
 
 module.exports = router;

@@ -1,25 +1,28 @@
 const express = require('express'),
 router = express.Router();
 nconf = require('nconf');
-var mysql      = require('mysql');
+
 nconf.file('config.json');
-var connection = mysql.createConnection({
-  host     : nconf.get('config:host'),
-  user     : nconf.get('config:user'),
-  password : nconf.get('config:password'),
-  database : nconf.get('config:database')
-  });
+
+  var sqlite3 = require('sqlite3').verbose();
+  var db = new sqlite3.Database('database.sqlite');
+
+
+
 nconf.file({ file: 'local.json' });
 var sets = nconf.get("settings:currency")
 
 router.get('/currency', function(req, res) {
-  connection.query('SELECT * FROM Followers', function(error, results){
-    result = results;
-    res.render('currency',{
-      data: result,
-      sats: sets,
-      classi: "currency"
-    });
+
+  db.serialize(function() {
+    db.all("SELECT * FROM Followers", function(err, row) {
+      console.log(row)
+      res.render('currency',{
+        data: row,
+        sats: sets,
+        classi: "currency"});
+  });
+
   });
 });
 

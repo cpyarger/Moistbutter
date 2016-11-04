@@ -3,22 +3,19 @@ const express = require('express'),
       nconf = require('nconf');
       var mysql      = require('mysql');
       nconf.file('config.json');
-      var connection = mysql.createConnection({
-        host     : nconf.get('config:host'),
-        user     : nconf.get('config:user'),
-        password : nconf.get('config:password'),
-        database : nconf.get('config:database')
-      });
+      var sqlite3 = require('sqlite3').verbose();
+      var db = new sqlite3.Database('database.sqlite');
 
-//GET home page.
-var result;
+
+
 
 
 router.get('/', function(req, res) {
-  connection.query('SELECT * FROM Followers ORDER BY id DESC LIMIT 1;', function(error, results){
-              result = results;
+  db.serialize(function() {
+    db.get("SELECT * FROM Followers ORDER BY id DESC LIMIT 1", function(err, row) {
+     res.render('index', row);
+   });
+  });
+});
 
-  res.render('index', result[0]);
-});
-});
 module.exports = router;
