@@ -36,6 +36,14 @@ sudo apt-get install -y nodejs
 For Binaries
 
 Download https://nodejs.org/dist/v7.0.0/node-v7.0.0-linux-x64.tar.xz
+
+Then do
+~~~~
+git clone https://github.com/cpyarger/moistbutter
+cd moistbutter
+npm install
+npm start
+~~~~
 #Discord API Access
 You will need to go to
 https://discordapp.com/developers/applications/me
