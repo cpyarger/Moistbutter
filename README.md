@@ -24,7 +24,18 @@ Features Requested
 * Song request / music queue
 * python plugin API
 *
+# Linux Installation -Debian/ubuntu
 
+For Package Manager
+
+~~~~
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+sudo apt-get install -y nodejs
+~~~~
+
+For Binaries
+
+Download https://nodejs.org/dist/v7.0.0/node-v7.0.0-linux-x64.tar.xz
 #Discord API Access
 You will need to go to
 https://discordapp.com/developers/applications/me
